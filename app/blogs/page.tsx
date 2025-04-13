@@ -12,11 +12,12 @@ export default function MuseumPage() {
           {/* Center image container with proper dimensions */}
           <div className="w-full max-w-3xl h-[400px] relative mb-8">
             <Image 
-              src="/fingers.gif" 
+              src="/human.gif" 
               alt="museum"
               fill
               className="object-contain"
               priority
+              unoptimized
             />
           </div>
           
