@@ -8,11 +8,13 @@ export default function ConceptLinks() {
   ]
 
   return (
-    <div className="space-y-1">
+    <div className="space-y-1 text-right">
       {concepts.map((concept) => (
-        <div key={concept.path} className="flex items-center">
-          <span className="mr-2">•</span>
-          <Link href={concept.path} className="hover:text-gray-400 transition-colors">
+        <div key={concept.path}>
+          <Link
+            href={concept.path}
+            className="hover:text-gray-400 transition-colors"
+          >
             {concept.name}
           </Link>
         </div>

@@ -1,33 +1,84 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import { useState } from "react";
+import AiAgentArticle from "./aiagent";
+
+interface Blog {
+  title: string;
+  content: React.ReactNode;
+}
+
+
+const blogs: Blog[] = [
+  {
+    title: "Principles of Building AI Agents",
+    content: <AiAgentArticle />,
+  },
+  // {
+  //   title: "Flutter vs React Native in 2025",
+  //   content: (
+  //     <div className="space-y-3 text-white/80">
+  //       <p>Both Flutter and React Native have matured, but Flutter still leads in performance and cross-platform UI consistency.</p>
+  //       <p>Why I prefer Flutter:</p>
+  //       <ul className="list-disc pl-5">
+  //         <li>Single codebase for web, mobile, desktop</li>
+  //         <li>Better performance with native compilation</li>
+  //         <li>Rich animation and layout capabilities</li>
+  //       </ul>
+  //     </div>
+  //   ),
+  // },
+  // {
+  //   title: "From Scripts to Systems: My FastAPI Journey",
+  //   content: (
+  //     <div className="space-y-3 text-white/80">
+  //       <p>I started with Python scripts, then discovered FastAPI and built entire APIs with ease.</p>
+  //       <p>What I love about FastAPI:</p>
+  //       <ul className="list-disc pl-5">
+  //         <li>Type-safe and Pydantic-powered</li>
+  //         <li>Automatic Swagger and docs</li>
+  //         <li>Great async support</li>
+  //       </ul>
+  //     </div>
+  //   ),
+  // },
+];
 
 export default function MuseumPage() {
+  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+
   return (
     <main className="min-h-screen bg-[#101010] text-white">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-12 text-center">Museum</h1>
-        
-        <div className="flex flex-col items-center gap-8">
-          {/* Center image container with proper dimensions */}
-          <div className="w-full max-w-3xl h-[400px] relative mb-8">
-            <Image 
-              src="/human.gif" 
-              alt="museum"
-              fill
-              className="object-contain"
-              priority
-              unoptimized
-            />
-          </div>
-          
-          {/* Space for future content */}
-          <div className="w-full max-w-3xl">
-            <p className="text-white/90 text-center text-lg">
-              will be writing stuff here...
-            </p>
-          </div>
-        </div>
+      <div className="flex h-screen">
+        {/* Sidebar: Blog titles */}
+        <aside className="w-1/3 md:w-1/4 bg-[#1a1a1a] p-6 overflow-y-auto border-r border-white/10">
+          <h2 className="text-xl font-semibold mb-4">Museum</h2>
+          <ul className="space-y-2">
+            {blogs.map((blog, idx) => (
+              <li
+                key={idx}
+                className={`cursor-pointer px-2 py-1 rounded hover:bg-white/10 ${
+                  selectedBlog?.title === blog.title ? "bg-white/10" : ""
+                }`}
+                onClick={() => setSelectedBlog(blog)}
+              >
+                {blog.title}
+              </li>
+            ))}
+          </ul>
+        </aside>
+
+        {/* Content Area */}
+        <section className="w-2/3 md:w-3/4 p-8 overflow-y-auto">
+          {selectedBlog ? (
+            <>
+              <h1 className="text-2xl font-bold mb-4">{selectedBlog.title}</h1>
+              <div>{selectedBlog.content}</div>
+            </>
+          ) : (
+            <p className="text-white/60 text-lg">Select a blog to read</p>
+          )}
+        </section>
       </div>
     </main>
   );
