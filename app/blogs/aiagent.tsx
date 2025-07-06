@@ -6,7 +6,7 @@ export default function AiAgentArticle() {
     <div className="space-y-10 text-white/90 leading-relaxed text-base">
 
       <div className="border-l-4 border-white/20 pl-4 italic text-white/80">
-        “The future isn't just smarter — it's more autonomous.”
+      <p>{`The future isn't just smarter — it's more autonomous.`}</p>
       </div>
 
       {/* LLM Foundations */}
