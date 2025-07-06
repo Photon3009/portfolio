@@ -67,7 +67,7 @@ export default function AiAgentArticle() {
             <strong>System Prompts:</strong> Utilizing the API&apos;s dedicated system prompt feature allows you to define an agent&apos;s overarching personality, style of response, and general guidelines. This ensures consistency in how the agent interacts and presents information.
           </li>
           <li>
-            <strong>Seed Crystals:</strong> When unsure how to craft the most effective prompt, the "seed crystal" approach involves asking the LLM itself to generate a better prompt based on your initial, less refined query. This iterative process can significantly improve prompt quality and agent performance.
+            <strong>Seed Crystals:</strong> When unsure how to craft the most effective prompt, the &quot;seed crystal&quot; approach involves asking the LLM itself to generate a better prompt based on your initial, less refined query. This iterative process can significantly improve prompt quality and agent performance.
           </li>
           <li>
             <strong>Formatting:</strong> LLMs are highly sensitive to the formatting of prompts. Techniques such as using capitalization for emphasis, employing XML-like tags, or structured markdown can help models follow instructions more precisely and generate responses in the desired format (e.g., JSON). Experimentation and evaluation are crucial to optimizing prompt effectiveness for your specific use case.
@@ -80,7 +80,7 @@ export default function AiAgentArticle() {
       <section>
         <h2 className="text-xl font-semibold mb-2">Building AI Agents</h2>
         <p>
-          AI agents are sophisticated constructs that wrap around core LLMs, augmenting them with crucial functionalities such as access to external tools, persistent memory, defined roles, and complex workflows. This transformation allows them to act more like autonomous "employees" — persistent, stateful entities responsible for maintaining context, executing tasks, and achieving specific goals. They go beyond simple chatbot interactions to become proactive problem-solvers.
+          AI agents are sophisticated constructs that wrap around core LLMs, augmenting them with crucial functionalities such as access to external tools, persistent memory, defined roles, and complex workflows. This transformation allows them to act more like autonomous &quot;employees&quot; — persistent, stateful entities responsible for maintaining context, executing tasks, and achieving specific goals. They go beyond simple chatbot interactions to become proactive problem-solvers.
         </p>
         
         <div className="flex flex-col items-center space-y-2">
@@ -150,7 +150,7 @@ export default function AiAgentArticle() {
           The Model Context Protocol (MCP) is emerging as a universal protocol for exposing tools and functionalities to AI agents, akin to how USB standardized connectivity for computer peripherals. Proposed by Anthropic and gaining rapid adoption, MCP enables seamless inter-agent communication and modular integration across different models and services. It functions as a standard for remote code execution, similar in concept to OpenAPI or RPC.
         </p>
         <p>
-          The MCP ecosystem includes "Servers" that wrap sets of MCP tools and communicate with "Clients" (models or agents) over HTTP. This standardization means vendors can ship MCP servers for their APIs, developers can create custom servers for specific functionalities, and registries can catalog the growing number of available servers. Frameworks like Mastra offer built-in abstractions for MCP server and client implementation, simplifying development.
+          The MCP ecosystem includes &quot;Servers&quot; that wrap sets of MCP tools and communicate with &quot;Clients&quot; (models or agents) over HTTP. This standardization means vendors can ship MCP servers for their APIs, developers can create custom servers for specific functionalities, and registries can catalog the growing number of available servers. Frameworks like Mastra offer built-in abstractions for MCP server and client implementation, simplifying development.
         </p>
         <p>
           If your application roadmap includes numerous third-party service integrations, building an MCP client can significantly streamline development. Conversely, if you are developing a tool or API intended for use by other agents, shipping an MCP server is advisable to ensure broad compatibility and ease of adoption. Challenges within the MCP ecosystem currently include fragmented discovery mechanisms, the need for standardized quality assurance, and variations in configuration and client implementations.
