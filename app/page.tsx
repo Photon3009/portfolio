@@ -140,8 +140,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#101010] text-white p-8">
-      <div className="max-w-7xl mx-auto flex flex-col h-full min-h-screen mt-4">
+    <main className="min-h-screen bg-[#101010] text-white p-16">
+      <div className="max-w-4xl mx-auto flex flex-col h-full min-h-screen mt-4">
 
         {/* Top Section: Text left + Profile right */}
         <div className="flex justify-between items-start gap-8">
