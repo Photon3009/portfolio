@@ -184,10 +184,10 @@ export default function Home() {
 
             {/* Tab Links */}
             <div className="flex space-x-4">
-              {["work", "projects", "museum"].map(tab => (
+            {(["work", "projects", "museum"] as const).map((tab) => (
                 <button
                   key={tab}
-                  onClick={() => toggleTab(tab as any)}
+                  onClick={() => toggleTab(tab)}
                   className={`transition-colors ${
                     selectedTab === tab
                       ? "text-white font-semibold"
