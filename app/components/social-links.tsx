@@ -10,7 +10,7 @@ export default function SocialLinks() {
   ]
 
   return (
-    <div className="flex items-center justify-center gap-8 text-sm text-[#191919]/40">
+    <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 px-4 text-sm text-[#191919]/40 md:gap-8 md:px-0">
       {socials.map((social) => (
         <Link
           key={social.name}

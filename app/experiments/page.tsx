@@ -77,7 +77,7 @@ const projects: Project[] = [
     name: "Sentiment Analyzer",
     description:
       "A full-stack web application that analyzes the sentiment of reviews of a Google Play Store app using FastAPI and typescript.",
-    image: "/projects/sentiment.webp",
+    image: "/projects/sentiment.png",
     link: "https://github.com/Photon3009/Play-Store-review-sentiment-analyzer",
   },
   {

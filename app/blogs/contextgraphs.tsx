@@ -6,7 +6,7 @@ export default function ContextGraphsArticle() {
 
       {/* Hero */}
       <Image
-        src="/article/contextgraphs.svg"
+        src="/article/context.avif"
         alt="Systems of Record, Reimagined"
         width={1200}
         height={630}
