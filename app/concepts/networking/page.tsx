@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#101010] text-white p-8 flex flex-col">
+    <main className="min-h-screen bg-white text-[#191919] p-8 flex flex-col">
       <div className="max-w-3xl mx-auto w-full flex-1 flex flex-col">
         <div className="flex gap-8 mb-16 mt-16">
           {/* Profile image */}
@@ -26,7 +26,7 @@ export default function Home() {
             Computer Networking: A Top Down Approach
             </h1>
 
-            <p className="text-white/90">
+            <p className="text-[#191919]/90">
               {" "}
               <Link
                 href="https://www.ucg.ac.me/skladiste/blog_44233/objava_64433/fajlovi/Computer%20Networking%20_%20A%20Top%20Down%20Approach,%207th,%20converted.pdf"
@@ -38,7 +38,7 @@ export default function Home() {
               </Link>
             </p>
 
-            <p className="text-white/90">
+            <p className="text-[#191919]/90">
               If you’re a visual learner, these are some good youtube video you can watch:
               <br />
             

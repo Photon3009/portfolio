@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#101010] text-white p-8 flex flex-col">
+    <main className="min-h-screen bg-white text-[#191919] p-8 flex flex-col">
       <div className="max-w-3xl mx-auto w-full flex-1 flex flex-col">
         <div className="flex gap-8 mb-16 mt-16">
           {/* Profile image */}
@@ -26,7 +26,7 @@ export default function Home() {
               Operating Systems: Three Easy Pieces
             </h1>
 
-            <p className="text-white/90">
+            <p className="text-[#191919]/90">
               {" "}
               <Link
                 href="https://pages.cs.wisc.edu/~remzi/OSTEP/"
@@ -38,7 +38,7 @@ export default function Home() {
               </Link>
             </p>
 
-            <p className="text-white/90">
+            <p className="text-[#191919]/90">
               If you’re a visual learner, follow this YouTube channel — most
               of your fundamentals will be covered:
               <br />
