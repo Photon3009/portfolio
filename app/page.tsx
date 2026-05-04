@@ -59,9 +59,7 @@ const ICONS: Array<{ key: TabKey; src: string; label: string; w: number; h: numb
   { key: "experiments", src: "/experiments.png", label: "experiments", w: 90, h: 120, href: "/experiments" },
 ];
 
-// Scatter positions around the me.png image. Anchored from bottom-right so they
-// stay glued to the photo regardless of viewport width. me.png is 360x450 so the
-// image occupies right:0–360, bottom:0–450; these positions hug those edges.
+// Desktop scatter: me.png is 360x450, anchored bottom-right.
 const WORK_SCATTER: Array<{ right: string; bottom: string; rotate: string }> = [
   { right: "340px", bottom: "380px", rotate: "-7deg" }, // top-left, slight overlap
   { right: "180px", bottom: "470px", rotate: "4deg" },  // top-mid, above image
@@ -70,10 +68,28 @@ const WORK_SCATTER: Array<{ right: string; bottom: string; rotate: string }> = [
   { right: "290px", bottom: "60px", rotate: "-4deg" },  // bottom-left, slight overlap
 ];
 
+// Mobile scatter: me.png renders ~176x220, cards are w-[160px]. Tighter cluster.
+const WORK_SCATTER_MOBILE: Array<{ right: string; bottom: string; rotate: string }> = [
+  { right: "10px", bottom: "235px", rotate: "-5deg" },  // just above image, right
+  { right: "130px", bottom: "215px", rotate: "4deg" },  // just above, leaning left
+  { right: "150px", bottom: "110px", rotate: "-7deg" }, // mid-left, overlapping image
+  { right: "50px", bottom: "340px", rotate: "5deg" },   // higher up
+  { right: "140px", bottom: "25px", rotate: "-3deg" },  // bottom-left, slight overlap
+];
+
 export default function Home() {
   const [workExpanded, setWorkExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const cardsRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!workExpanded) return;
@@ -87,10 +103,15 @@ export default function Home() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [workExpanded]);
 
+  const positions = isMobile ? WORK_SCATTER_MOBILE : WORK_SCATTER;
+  // Origin point near the "*(my work.ex)" button so cards appear to emerge from it.
+  const originRight = isMobile ? "200px" : "430px";
+  const originBottom = isMobile ? "70px" : "140px";
+
   return (
-    <main className="h-screen overflow-hidden bg-white text-[#191919] relative">
-      {/* Bio: top-left */}
-      <div className="absolute top-12 left-12 max-w-2xl text-sm text-[#191919] leading-relaxed space-y-1">
+    <main className="min-h-screen pb-56 md:pb-0 md:h-screen md:overflow-hidden bg-white text-[#191919] relative">
+      {/* Bio: in flow on mobile, absolute top-left on desktop */}
+      <div className="px-6 pt-10 md:px-0 md:pt-0 md:absolute md:top-12 md:left-12 max-w-2xl text-sm text-[#191919] leading-relaxed space-y-2 md:space-y-1">
         <p>i&apos;m a software engineer who refused to stay in one lane.</p>
         <p>
           i build products, read philosophy, contribute to open source, and write about whatever&apos;s currently living rent-free in my head — tech or not.
@@ -115,8 +136,8 @@ export default function Home() {
         </p>
       </div>
 
-      {/* Icon column: left-aligned, modest spacing between rows + tight label-to-image */}
-      <div className="absolute left-12 top-[42%] flex flex-col gap-10 items-start">
+      {/* Icons: horizontal row on mobile, vertical column on desktop */}
+      <div className="px-6 mt-8 flex flex-row gap-8 items-end justify-start md:px-0 md:mt-0 md:absolute md:left-12 md:top-[42%] md:flex-col md:gap-10 md:items-start">
         {ICONS.map((icon) => {
           const inner = (
             <>
@@ -152,22 +173,36 @@ export default function Home() {
         })}
       </div>
 
-      {/* Social links: bottom-center */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-        <SocialLinks />
+      {/* me.png + work.ex: pinned to bottom-right corner on every breakpoint */}
+      <div className="absolute bottom-0 right-0 flex items-end gap-3 md:gap-6">
+        <button
+          ref={buttonRef}
+          onClick={() => setWorkExpanded((v) => !v)}
+          className="mb-16 md:mb-32 text-base md:text-xl text-[#191919] hover:text-[#191919]/70 transition-colors cursor-pointer whitespace-nowrap relative z-20"
+        >
+          *(my work.ex)
+        </button>
+        <Image
+          src="/me.png"
+          alt="Shivam"
+          width={360}
+          height={450}
+          className="object-contain pointer-events-none select-none w-44 md:w-[360px] h-auto"
+          priority
+        />
       </div>
 
       {/* Experience cards scattered around me.png — emerge from "my work.ex" text */}
       <div ref={cardsRef}>
         {experiences.map((exp, index) => {
-          const pos = WORK_SCATTER[index];
+          const pos = positions[index];
           return (
             <div
               key={`${exp.company}-${exp.duration}`}
-              className="absolute z-10 w-[220px] origin-bottom-right transition-all duration-700 ease-out"
+              className="absolute z-10 w-[160px] md:w-[220px] origin-bottom-right transition-all duration-700 ease-out"
               style={{
-                right: workExpanded ? pos.right : "430px",
-                bottom: workExpanded ? pos.bottom : "140px",
+                right: workExpanded ? pos.right : originRight,
+                bottom: workExpanded ? pos.bottom : originBottom,
                 transform: workExpanded
                   ? `rotate(${pos.rotate}) scale(1)`
                   : "rotate(0deg) scale(0.05)",
@@ -182,25 +217,10 @@ export default function Home() {
         })}
       </div>
 
-      {/* me.png bottom-right + work.ex label, grouped so the label never gets clipped */}
-      <div className="absolute bottom-0 right-0 flex items-end gap-6">
-        <button
-          ref={buttonRef}
-          onClick={() => setWorkExpanded(true)}
-          className="mb-32 text-xl text-[#191919] hover:text-[#191919]/70 transition-colors cursor-pointer whitespace-nowrap relative z-20"
-        >
-          *(my work.ex)
-        </button>
-        <Image
-          src="/me.png"
-          alt="Shivam"
-          width={360}
-          height={450}
-          className="object-contain pointer-events-none select-none"
-          priority
-        />
+      {/* Social links: in flow at bottom on mobile, fixed bottom-center on desktop */}
+      <div className="mt-10 mb-8 flex justify-center md:mt-0 md:mb-0 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 z-20">
+        <SocialLinks />
       </div>
-
     </main>
   );
 }

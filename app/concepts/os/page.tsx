@@ -3,9 +3,9 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-[#191919] p-8 flex flex-col">
+    <main className="min-h-screen bg-white text-[#191919] p-4 md:p-8 flex flex-col">
       <div className="max-w-3xl mx-auto w-full flex-1 flex flex-col">
-        <div className="flex gap-8 mb-16 mt-16">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-16 mt-8 md:mt-16">
           {/* Profile image */}
           <div className="w-48 flex flex-col items-center">
             <div className="w-48 h-90 relative overflow-hidden mb-4">
