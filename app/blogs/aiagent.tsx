@@ -3,9 +3,9 @@ import CodeBlock from "../components/CodeBlock";
 
 export default function AiAgentArticle() {
   return (
-    <div className="space-y-10 text-white/90 leading-relaxed text-base">
+    <div className="space-y-10 text-[#191919]/90 leading-relaxed text-base">
 
-      <div className="border-l-4 border-white/20 pl-4 italic text-white/80">
+      <div className="border-l-4 border-[#191919]/20 pl-4 italic text-[#191919]/80">
       <p>{`The future isn't just smarter — it's more autonomous.`}</p>
       </div>
 
@@ -24,9 +24,9 @@ export default function AiAgentArticle() {
             alt="LLMs meme"
             width={300}
             height={120}
-            className="rounded border border-white/10"
+            className="rounded border border-[#191919]/10"
         />
-        <p className="text-sm text-white/60">Source: <a href="https://www.instagram.com/interconnctd/" target="_blank" className="underline hover:text-white">interconnctd</a></p>
+        <p className="text-sm text-[#191919]/60">Source: <a href="https://www.instagram.com/interconnctd/" target="_blank" className="underline hover:text-[#191919]">interconnctd</a></p>
         </div>
 
       </section>
@@ -89,9 +89,9 @@ export default function AiAgentArticle() {
           alt="Agentic architecture"
           width={400}
           height={200}
-          className="rounded border border-white/10"
+          className="rounded border border-[#191919]/10"
         />
-        <p className="text-sm text-white/60">Source: <a href="https://vectorize.io/designing-agentic-ai-systems-part-1-agent-architectures/" target="_blank" className="underline hover:text-white">vectorize.io</a></p>
+        <p className="text-sm text-[#191919]/60">Source: <a href="https://vectorize.io/designing-agentic-ai-systems-part-1-agent-architectures/" target="_blank" className="underline hover:text-[#191919]">vectorize.io</a></p>
         </div>
         <h3 className="text-lg font-medium mt-4">Tool Calling Example</h3>
         <p className="mb-2">Tools are essentially functions that agents can invoke to perform specific actions that an LLM cannot do on its own, such as fetching real-time data, interacting with external APIs, querying databases, or executing calculations. Effective tool usage is fundamental to an agent&apos;s utility and relies heavily on clear communication with the model about the tool&apos;s purpose and how to use it.</p>
@@ -161,9 +161,9 @@ export default function AiAgentArticle() {
     alt="MCP diagram"
     width={600}
     height={300}
-    className="rounded border border-white/10"
+    className="rounded border border-[#191919]/10"
   />
-  {/* <p className="text-sm text-white/60">Source: <a href="https://source-link.com" target="_blank" className="underline hover:text-white">source-link.com</a></p> */}
+  {/* <p className="text-sm text-[#191919]/60">Source: <a href="https://source-link.com" target="_blank" className="underline hover:text-[#191919]">source-link.com</a></p> */}
 </div>
 
       </section>

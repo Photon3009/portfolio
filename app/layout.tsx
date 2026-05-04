@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
 
-      <body className={`${ovo.className} bg-[#101010]`}>{children}</body>
+      <body className={`${ovo.className} bg-white text-[#191919]`}>{children}</body>
     </html>
   )
 }

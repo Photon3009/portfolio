@@ -2,26 +2,25 @@ import Link from "next/link"
 
 export default function SocialLinks() {
   const socials = [
-    { name: "x", url: "https://x.com/photon3009" },
-    { name: "gh", url: "https://github.com/Photon3009" },
-    { name: "in", url: "https://www.linkedin.com/in/shivam-verma-1554b9223/" },
-    { name: "m", url: "https://medium.com/@sv30092001" },
+    { name: "medium", url: "https://medium.com/@sv30092001" },
+    { name: "github", url: "https://github.com/Photon3009" },
+    { name: "linkedin", url: "https://www.linkedin.com/in/shivam-verma-1554b9223/" },
+    { name: "x(twitter)", url: "https://x.com/sheeeevam" },
+    { name: "substack", url: "https://substack.com/@seawam" },
   ]
 
   return (
-    <div className="flex items-center flex-wrap text-sm text-white/80">
-      {socials.map((social, index) => (
-        <span key={social.name} className="flex items-center">
-          <Link
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-400 transition-colors"
-          >
-            {social.name}
-          </Link>
-          {index < socials.length - 1 && <span className="mx-2">•</span>}
-        </span>
+    <div className="flex items-center justify-center gap-8 text-sm text-[#191919]/40">
+      {socials.map((social) => (
+        <Link
+          key={social.name}
+          href={social.url}
+          target={social.url.startsWith("http") ? "_blank" : undefined}
+          rel={social.url.startsWith("http") ? "noopener noreferrer" : undefined}
+          className="hover:text-[#191919] transition-colors"
+        >
+          {social.name}
+        </Link>
       ))}
     </div>
   )
