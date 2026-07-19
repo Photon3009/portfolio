@@ -1,0 +1,68 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#fafafa"/>
+
+  <!-- Subtle grid backdrop -->
+  <g stroke="#191919" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 105 H1200 M0 210 H1200 M0 315 H1200 M0 420 H1200 M0 525 H1200"/>
+    <path d="M120 0 V630 M280 0 V630 M440 0 V630 M600 0 V630 M760 0 V630 M920 0 V630 M1080 0 V630"/>
+  </g>
+
+  <!-- Background graph: many faint nodes + edges (the "system of record" layer) -->
+  <g stroke="#191919" stroke-opacity="0.12" stroke-width="1" fill="none">
+    <line x1="160" y1="180" x2="320" y2="120"/>
+    <line x1="320" y1="120" x2="500" y2="200"/>
+    <line x1="500" y1="200" x2="680" y2="140"/>
+    <line x1="680" y1="140" x2="850" y2="220"/>
+    <line x1="850" y1="220" x2="1020" y2="170"/>
+    <line x1="160" y1="180" x2="240" y2="350"/>
+    <line x1="240" y1="350" x2="420" y2="430"/>
+    <line x1="420" y1="430" x2="600" y2="380"/>
+    <line x1="600" y1="380" x2="780" y2="450"/>
+    <line x1="780" y1="450" x2="960" y2="400"/>
+    <line x1="500" y1="200" x2="600" y2="380"/>
+    <line x1="320" y1="120" x2="240" y2="350"/>
+    <line x1="850" y1="220" x2="780" y2="450"/>
+    <line x1="680" y1="140" x2="600" y2="380"/>
+    <line x1="160" y1="500" x2="240" y2="350"/>
+    <line x1="160" y1="500" x2="420" y2="430"/>
+    <line x1="960" y1="400" x2="1020" y2="170"/>
+    <line x1="1020" y1="170" x2="1080" y2="320"/>
+    <line x1="1080" y1="320" x2="960" y2="400"/>
+  </g>
+  <g fill="#191919" fill-opacity="0.35">
+    <circle cx="160" cy="180" r="5"/>
+    <circle cx="320" cy="120" r="5"/>
+    <circle cx="680" cy="140" r="5"/>
+    <circle cx="1020" cy="170" r="5"/>
+    <circle cx="240" cy="350" r="5"/>
+    <circle cx="420" cy="430" r="5"/>
+    <circle cx="780" cy="450" r="5"/>
+    <circle cx="960" cy="400" r="5"/>
+    <circle cx="160" cy="500" r="5"/>
+    <circle cx="1080" cy="320" r="5"/>
+  </g>
+
+  <!-- Foreground: the "decision trace" path through the graph -->
+  <g stroke="#191919" stroke-width="2" fill="none">
+    <line x1="500" y1="200" x2="600" y2="380"/>
+    <line x1="600" y1="380" x2="850" y2="220"/>
+  </g>
+  <g fill="#191919">
+    <circle cx="500" cy="200" r="9"/>
+    <circle cx="600" cy="380" r="11"/>
+    <circle cx="850" cy="220" r="9"/>
+  </g>
+
+  <!-- Soft annotations -->
+  <g fill="#191919" font-family="Georgia, serif" font-size="14" fill-opacity="0.55">
+    <text x="468" y="184">event</text>
+    <text x="568" y="412">decision</text>
+    <text x="822" y="204">outcome</text>
+  </g>
+
+  <!-- Title -->
+  <g font-family="Georgia, serif" fill="#191919">
+    <text x="80" y="80" font-size="34" font-weight="600">Systems of Record, Reimagined</text>
+    <text x="80" y="110" font-size="16" fill-opacity="0.55">what context graphs do that knowledge graphs don't</text>
+  </g>
+</svg>
