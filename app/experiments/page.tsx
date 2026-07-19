@@ -11,6 +11,20 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Muze",
+    image: "/graph.png",
+    link: "https://github.com/Photon3009/muze",
+    description: (
+      <>
+        <strong>Muze</strong> is the co-founder of your life, a local-first macOS app that quietly
+        remembers everything you see, then lets you chat with it, map it, and explore it. It
+        passively watches your screen, reads the text on it with on-device OCR, and turns your day
+        into a searchable memory. Then it gives you every way back in: chat with it, feed on it,
+        map it, board it, budget it. All of it runs on localhost nothing ever leaves your machine.
+      </>
+    ),
+  },
+  {
     name: "Sense",
     image: "/projects/sense.png",
     link: "https://chromewebstore.google.com/detail/sense/ffebbefapkicgiaffdjihkpaoglblfia",
