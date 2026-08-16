@@ -1,12 +1,12 @@
 import Image from "next/image";
-import CodeBlock from "../components/CodeBlock";
+import CodeBlock from "../../components/CodeBlock";
 
 export default function AiAgentArticle() {
   return (
     <div className="space-y-10 text-[#191919]/90 leading-relaxed text-base">
 
       <div className="border-l-4 border-[#191919]/20 pl-4 italic text-[#191919]/80">
-      <p>{`The future isn't just smarter — it's more autonomous.`}</p>
+      <p>{`The future isn't just smarter. It's more autonomous.`}</p>
       </div>
 
       {/* LLM Foundations */}
@@ -42,7 +42,7 @@ export default function AiAgentArticle() {
             <strong>Model Size:</strong> Larger models generally offer superior reasoning capabilities and higher accuracy, making them ideal for complex tasks. However, this comes with inherent tradeoffs in terms of increased latency and higher operational costs. Smaller models, conversely, are faster and more economical but may exhibit less sophisticated reasoning. A common strategy is to prototype with more capable, albeit more expensive, models and then optimize for cost and speed by switching to smaller models or fine-tuning as the application matures.
           </li>
           <li>
-            <strong>Context Window:</strong> The size of an LLM&apos;s context window—the amount of text it can process at one time—is a critical factor. Larger context windows simplify memory management for agents and greatly support long-form reasoning by allowing the agent to hold and process more information about the current task and past interactions without losing coherence.
+            <strong>Context Window:</strong> The size of an LLM&apos;s context window (the amount of text it can process at one time) is a critical factor. Larger context windows simplify memory management for agents and greatly support long-form reasoning by allowing the agent to hold and process more information about the current task and past interactions without losing coherence.
           </li>
           <li>
             <strong>Specialization:</strong> Consider models optimized for specific tasks. For instance, Claude models are highly regarded for their reasoning abilities, while models like Codex (or similar specialized models) excel in code generation and understanding. Mixtral, an open-source model, is often chosen for its balance of speed and performance. Understanding the strengths of different models allows developers to select the best fit for their agent&apos;s primary functions.
@@ -80,7 +80,7 @@ export default function AiAgentArticle() {
       <section>
         <h2 className="text-xl font-semibold mb-2">Building AI Agents</h2>
         <p>
-          AI agents are sophisticated constructs that wrap around core LLMs, augmenting them with crucial functionalities such as access to external tools, persistent memory, defined roles, and complex workflows. This transformation allows them to act more like autonomous &quot;employees&quot; — persistent, stateful entities responsible for maintaining context, executing tasks, and achieving specific goals. They go beyond simple chatbot interactions to become proactive problem-solvers.
+          AI agents are sophisticated constructs that wrap around core LLMs, augmenting them with crucial functionalities such as access to external tools, persistent memory, defined roles, and complex workflows. This transformation allows them to act more like autonomous &quot;employees&quot;: persistent, stateful entities responsible for maintaining context, executing tasks, and achieving specific goals. They go beyond simple chatbot interactions to become proactive problem-solvers.
         </p>
         
         <div className="flex flex-col items-center space-y-2">
@@ -129,7 +129,7 @@ export default function AiAgentArticle() {
       <section>
         <h2 className="text-xl font-semibold mb-2">Dynamic Agents & Middleware</h2>
         <p>
-          Dynamic agents are those whose properties—such as their instructions, the specific LLM they use, or the tools available to them—can be determined and altered at runtime based on real-time factors like user input, environmental context, or user permissions. This offers significantly greater flexibility compared to static agents. Middleware plays a crucial role in enabling this adaptability by providing a layer for implementing various runtime functionalities.
+          Dynamic agents are those whose properties (such as their instructions, the specific LLM they use, or the tools available to them) can be determined and altered at runtime based on real-time factors like user input, environmental context, or user permissions. This offers significantly greater flexibility compared to static agents. Middleware plays a crucial role in enabling this adaptability by providing a layer for implementing various runtime functionalities.
         </p>
         <ul className="list-disc pl-5 space-y-1">
           <li><strong>Model Routing:</strong> Directs requests to different LLMs based on criteria like user tier, task complexity, or cost optimization.</li>
