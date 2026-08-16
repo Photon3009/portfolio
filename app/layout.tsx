@@ -4,13 +4,21 @@ import type { Metadata } from "next"
 import { Ovo } from "next/font/google"
 
 
-const ovo = Ovo({ 
+const ovo = Ovo({
   weight: "400",
-  subsets: ["latin"] 
+  subsets: ["latin"]
 })
 
+// set NEXT_PUBLIC_SITE_URL to the deployed origin so shared links get absolute
+// og:url / og:image (link previews on twitter, slack, etc. need absolute urls)
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+
 export const metadata: Metadata = {
-  title: "Personal Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Personal Portfolio",
+    template: "%s · Shivam Verma",
+  },
   description: "My personal portfolio and concept explanations",
 }
 

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Two crossing probability curves for the pronouns he and she under feature steering">
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- baseline / zero line -->
+  <line x1="120" y1="530" x2="1080" y2="530" stroke="#191919" stroke-opacity="0.12" stroke-width="2"/>
+  <line x1="600" y1="90" x2="600" y2="530" stroke="#191919" stroke-opacity="0.12" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- 'he' rises with strength -->
+  <path d="M120,470 C300,430 420,300 600,240 C780,180 920,150 1080,140"
+        fill="none" stroke="#C62828" stroke-width="10" stroke-linecap="round"/>
+  <!-- 'she' falls with strength -->
+  <path d="M120,180 C300,220 420,340 600,400 C780,460 920,490 1080,500"
+        fill="none" stroke="#FF8F00" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- crossing point -->
+  <circle cx="600" cy="240" r="13" fill="#C62828"/>
+  <circle cx="600" cy="400" r="13" fill="#FF8F00"/>
+
+  <!-- end labels -->
+  <text x="1100" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="34" fill="#C62828">he</text>
+  <text x="1100" y="512" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="34" fill="#FF8F00">she</text>
+
+  <!-- axis annotations -->
+  <text x="120" y="580" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#191919" fill-opacity="0.4">−6</text>
+  <text x="560" y="580" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#191919" fill-opacity="0.4">0</text>
+  <text x="1040" y="580" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#191919" fill-opacity="0.4">+6</text>
+
+  <text x="120" y="72" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#191919" fill-opacity="0.45">f32258 · layer 8 · steering strength</text>
+</svg>

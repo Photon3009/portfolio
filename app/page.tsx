@@ -221,6 +221,7 @@ export default function Home() {
       <div className="mt-10 mb-8 flex justify-center md:mt-0 md:mb-0 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 z-20">
         <SocialLinks />
       </div>
+
     </main>
   );
 }
