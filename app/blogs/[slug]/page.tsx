@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogs, getBlog } from "../blogs";
+import { blogs, formatDate, getBlog } from "../blogs";
 import Comments from "../../components/Comments";
 import CopyLinkButton from "./copy-link-button";
 
@@ -68,10 +68,15 @@ export default async function BlogPage({ params }: PageProps) {
         <header className={blog.wide ? "mx-auto max-w-[40rem]" : ""}>
           <h1 className="mt-10 mb-3">{blog.title}</h1>
           {blog.kicker && (
-            <p className="lw-meta text-[15px] text-[#191919]/50 mb-10">
+            <p className="lw-meta text-[15px] text-[#191919]/50 mb-2">
               {blog.kicker}
             </p>
           )}
+          <p className="lw-meta flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-[#191919]/45 mb-10">
+            <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+            <span aria-hidden="true">·</span>
+            <span>{blog.readingMinutes} min read</span>
+          </p>
         </header>
         <div>
           <Content />

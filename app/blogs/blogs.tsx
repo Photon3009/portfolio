@@ -14,11 +14,20 @@ export interface Blog {
   /** render the reader in a wider column — for articles with interactive figures */
   wide?: boolean;
   kicker?: string;
+  /** ISO date the piece went up. Taken from the first commit that added it. */
+  date: string;
+  /**
+   * Whole minutes at 225wpm. Regenerate with `node scripts/reading-time.mjs`
+   * after editing an article — it counts the prose out of the JSX.
+   */
+  readingMinutes: number;
 }
 
 export const blogs: Blog[] = [
   {
     slug: "mechanic-is-a-man",
+    date: "2026-08-16",
+    readingMinutes: 17,
     title: "The Number That Decides a Mechanic Is a Man",
     kicker:
       "mechanistic interpretability · sparse autoencoders · feature steering",
@@ -30,6 +39,8 @@ export const blogs: Blog[] = [
   },
   {
     slug: "systems-of-record-reimagined",
+    date: "2026-05-05",
+    readingMinutes: 6,
     title: "Systems of Record, Reimagined",
     thumbnail: "/article/context.avif",
     summary:
@@ -38,6 +49,8 @@ export const blogs: Blog[] = [
   },
   {
     slug: "a-reliable-knowledge-graph",
+    date: "2026-05-05",
+    readingMinutes: 7,
     title: "A Reliable Knowledge Graph Is What We Need",
     thumbnail: "/article/kg-biomedical.svg",
     summary:
@@ -46,6 +59,8 @@ export const blogs: Blog[] = [
   },
   {
     slug: "principles-of-building-ai-agents",
+    date: "2025-07-06",
+    readingMinutes: 8,
     title: "Principles of Building AI Agents",
     thumbnail: "/article/aiagentarc.png",
     summary:
@@ -53,6 +68,15 @@ export const blogs: Blog[] = [
     Content: AiAgentArticle,
   },
 ];
+
+export function formatDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
 
 export function getBlog(slug: string): Blog | undefined {
   return blogs.find((blog) => blog.slug === slug);

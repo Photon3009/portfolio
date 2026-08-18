@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { blogs, externalArticles } from "./blogs";
+import { blogs, externalArticles, formatDate } from "./blogs";
 
 export const metadata: Metadata = {
   title: "museum",
@@ -44,6 +44,11 @@ export default function MuseumPage() {
                 <h3 className="mt-3 font-medium leading-tight">{blog.title}</h3>
                 <p className="text-sm text-[#191919]/60 mt-1 leading-snug">
                   {blog.summary}
+                </p>
+                <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[#191919]/35">
+                  <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+                  <span aria-hidden="true"> · </span>
+                  {blog.readingMinutes} min
                 </p>
               </Link>
             ))}
