@@ -9,18 +9,30 @@ export default function SocialLinks() {
     { name: "substack", url: "https://substack.com/@seawam" },
   ]
 
+  // mailto: is not http, so it must not get target="_blank" — that opens a
+  // dead tab in some browsers before handing off to the mail client.
+  const contacts = [{ name: "email", url: "mailto:shivam.vermaa30@gmail.com" }]
+
+  const style = "hover:text-[#191919] transition-colors"
+
   return (
     <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 px-4 text-sm text-[#191919]/40 md:gap-8 md:px-0">
       {socials.map((social) => (
         <Link
           key={social.name}
           href={social.url}
-          target={social.url.startsWith("http") ? "_blank" : undefined}
-          rel={social.url.startsWith("http") ? "noopener noreferrer" : undefined}
-          className="hover:text-[#191919] transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={style}
         >
           {social.name}
         </Link>
+      ))}
+
+      {contacts.map((c) => (
+        <a key={c.name} href={c.url} className={style}>
+          {c.name}
+        </a>
       ))}
     </div>
   )

@@ -1,74 +1,16 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AiAgentArticle from "./aiagent";
-import ContextGraphsArticle from "./contextgraphs";
-import KnowledgeGraphArticle from "./knowledgegraph";
+import { blogs, externalArticles, formatDate } from "./blogs";
 
-interface Blog {
-  title: string;
-  thumbnail: string;
-  summary: string;
-  content: React.ReactNode;
-}
-
-interface ExternalArticle {
-  title: string;
-  url: string;
-  platform: string;
-}
-
-const blogs: Blog[] = [
-  {
-    title: "Systems of Record, Reimagined",
-    thumbnail: "/article/context.avif",
-    summary:
-      "Why intelligence doesn't live where the data lives — and how context graphs sit above systems of record to capture decisions, not just outcomes.",
-    content: <ContextGraphsArticle />,
-  },
-  {
-    title: "A Reliable Knowledge Graph Is What We Need",
-    thumbnail: "/article/kg-biomedical.svg",
-    summary:
-      "LLMs hallucinate and vector retrieval drops the facts that matter. The fix may be a bottom-up one — domain-expert models grounded in structured knowledge graphs.",
-    content: <KnowledgeGraphArticle />,
-  },
-  {
-    title: "Principles of Building AI Agents",
-    thumbnail: "/article/aiagentarc.png",
-    summary:
-      "How LLMs, tools, memory, and orchestration come together to build autonomous AI agents.",
-    content: <AiAgentArticle />,
-  },
-];
-
-// Add links to articles you've written on Medium, Substack, etc. here.
-const externalArticles: ExternalArticle[] = [];
+export const metadata: Metadata = {
+  title: "museum",
+  description: "a collection of my blogs, learnings, and experiments",
+};
 
 export default function MuseumPage() {
-  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
-
-  if (selectedBlog) {
-    return (
-      <main className="min-h-screen bg-white text-[#191919]">
-        <div className="max-w-3xl mx-auto px-6 py-12">
-          <button
-            onClick={() => setSelectedBlog(null)}
-            className="text-sm text-[#191919]/60 hover:text-[#191919] transition-colors"
-          >
-            ← back to museum
-          </button>
-          <h1 className="text-3xl font-bold mt-8 mb-6">{selectedBlog.title}</h1>
-          <div>{selectedBlog.content}</div>
-        </div>
-      </main>
-    );
-  }
-
   return (
-    <main className="min-h-screen bg-white text-[#191919]">
+    <main className="min-h-screen bg-white text-[#191919] font-lw">
       <div className="max-w-4xl mx-auto px-6 py-16">
         <Link
           href="/"
@@ -86,9 +28,9 @@ export default function MuseumPage() {
           <h2 className="text-xl font-semibold mb-6">my articles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {blogs.map((blog) => (
-              <button
-                key={blog.title}
-                onClick={() => setSelectedBlog(blog)}
+              <Link
+                key={blog.slug}
+                href={`/blogs/${blog.slug}`}
                 className="text-left group"
               >
                 <div className="relative w-full aspect-video overflow-hidden rounded-md border border-[#191919]/10 bg-[#191919]/5">
@@ -103,7 +45,12 @@ export default function MuseumPage() {
                 <p className="text-sm text-[#191919]/60 mt-1 leading-snug">
                   {blog.summary}
                 </p>
-              </button>
+                <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[#191919]/35">
+                  <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+                  <span aria-hidden="true"> · </span>
+                  {blog.readingMinutes} min
+                </p>
+              </Link>
             ))}
           </div>
         </section>

@@ -5,7 +5,7 @@ export default function KnowledgeGraphArticle() {
     <div className="space-y-10 text-[#191919]/90 leading-relaxed text-base">
       <div className="border-l-4 border-[#191919]/20 pl-4 italic text-[#191919]/80">
         <p>
-          {`Can we build systems that are true domain experts — not just well-spoken generalists?`}
+          {`Can we build systems that are true domain experts, not just well-spoken generalists?`}
         </p>
       </div>
 
@@ -21,14 +21,14 @@ export default function KnowledgeGraphArticle() {
           >
             paper
           </a>{" "}
-          that argues for a bottom-up approach to domain-specific models — grounding them in structured knowledge graphs
+          that argues for a bottom-up approach to domain-specific models, grounding them in structured knowledge graphs
           rather than vast, unstructured text corpora. The more I sit with it, the more it feels like the missing layer
           beneath the LLM stack.
         </p>
         <p className="mt-4">
           We&apos;ve spent two years asking <em>how do we make LLMs smarter?</em> The answer the field has converged on
           is mostly &quot;more data, more parameters, more compute.&quot; But there&apos;s a quieter answer that keeps
-          surfacing in adjacent fields — biomedical informatics, finance, regulatory tech: <em>structure the world
+          surfacing in adjacent fields (biomedical informatics, finance, regulatory tech): <em>structure the world
           first, then teach the model to reason over it.</em> That second answer is what this piece is about.
         </p>
       </section>
@@ -52,14 +52,14 @@ export default function KnowledgeGraphArticle() {
           <div className="border border-[#191919]/10 rounded-lg p-5 bg-white">
             <h3 className="font-semibold mb-2">Bottom-up: structure + reasoning</h3>
             <p className="text-sm text-[#191919]/75">
-              Curate the relationships first — diseases cause symptoms, drugs interact with proteins, regulations
-              reference statutes — then train a smaller model to traverse them. The bet is that reasoning over an
+              Curate the relationships first (diseases cause symptoms, drugs interact with proteins, regulations
+              reference statutes), then train a smaller model to traverse them. The bet is that reasoning over an
               explicit structure beats pattern-matching over an implicit one in any domain that demands precision.
             </p>
           </div>
         </div>
         <p className="mt-4">
-          The provocation of the recent literature is that bottom-up doesn&apos;t lose to scale — it complements it.
+          The provocation of the recent literature is that bottom-up doesn&apos;t lose to scale. it complements it.
           You don&apos;t need a trillion-parameter model to outperform GPT-4 on medical reasoning. You need 32B
           parameters and a clean graph.
         </p>
@@ -74,15 +74,14 @@ export default function KnowledgeGraphArticle() {
         <ul className="list-disc pl-5 space-y-2 mt-3">
           <li>
             <strong>Hallucination.</strong> Without explicit grounding, the model fills gaps with plausible-sounding fiction.
-            In high-stakes domains — medicine, law, finance — plausibility is not enough.
+            In high-stakes domains (medicine, law, finance) plausibility is not enough.
           </li>
           <li>
             <strong>Shallow multi-step reasoning.</strong> Chain-of-thought helps, but the model is still navigating
             implicit relationships hidden inside its weights, not an explicit map of how concepts connect.
           </li>
           <li>
-            <strong>Vector similarity is lossy.</strong> Most retrieval pipelines return only top-k chunks. The k+1th
-            chunk — slightly less similar but factually critical — gets dropped on the floor. Unstructured text simply
+            <strong>Vector similarity is lossy.</strong> Most retrieval pipelines return only top-k chunks. The k+1th chunk (slightly less similar but factually critical) gets dropped on the floor. Unstructured text simply
             doesn&apos;t expose the deep abstractions a domain expert relies on.
           </li>
         </ul>
@@ -96,7 +95,7 @@ export default function KnowledgeGraphArticle() {
       <section>
         <h2 className="text-2xl font-bold mb-3">What a Knowledge Graph Actually Looks Like</h2>
         <p>
-          A knowledge graph is a network of entities — people, drugs, diseases, papers, places — connected by typed
+          A knowledge graph is a network of entities (people, drugs, diseases, papers, places) connected by typed
           relationships. Below is a class-level view of the biomedical subset of Wikidata: every node is a kind of
           thing, every edge a verifiable claim about how those things relate.
         </p>
@@ -127,8 +126,7 @@ export default function KnowledgeGraphArticle() {
         <h2 className="text-2xl font-bold mb-3">Anatomy of a Graph: Triplets, Types, Ontologies</h2>
         <p>
           A knowledge graph, stripped to its bones, is a collection of <em>triplets</em>:
-          <span className="font-mono text-sm bg-[#191919]/5 px-2 py-1 rounded mx-1">(subject, predicate, object)</span>
-          — facts in atomic form. <span className="font-mono text-sm">(aspirin, treats, headache)</span> is a triplet.
+          <span className="font-mono text-sm bg-[#191919]/5 px-2 py-1 rounded mx-1">(subject, predicate, object)</span>, facts in atomic form. <span className="font-mono text-sm">(aspirin, treats, headache)</span> is a triplet.
           So is <span className="font-mono text-sm">(aspirin, hasContraindication, hemophilia)</span>.
         </p>
         <p className="mt-4">
@@ -143,13 +141,12 @@ export default function KnowledgeGraphArticle() {
           </li>
           <li>
             <strong>An inference layer.</strong> Rules and constraints that derive new edges from existing ones.
-            <em> If A is a kind of B, and B treats C, then A treats C</em> — except when overridden. The graph holds
+            <em> If A is a kind of B, and B treats C, then A treats C</em>, except when overridden. The graph holds
             both the facts and the entailment rules, so you don&apos;t need to enumerate every consequence.
           </li>
         </ul>
         <p className="mt-4">
-          This is the part that&apos;s easy to under-appreciate. A graph isn&apos;t just <em>data</em> — it&apos;s data
-          plus a typed grammar that tells you which questions are even askable. That grammar is what lets a small
+          This is the part that&apos;s easy to under-appreciate. A graph isn&apos;t just <em>data</em>. it&apos;s data plus a typed grammar that tells you which questions are even askable. That grammar is what lets a small
           model punch above its weight: it doesn&apos;t need to learn that drugs treat diseases from a million sentences,
           because the schema already says so.
         </p>
@@ -161,11 +158,10 @@ export default function KnowledgeGraphArticle() {
         <p>
           The paper makes the case concretely in medicine. By fine-tuning QwQ-32B on{" "}
           <strong>24,000 tasks generated from a medical knowledge graph</strong>, the authors produced{" "}
-          <em>QwQ-Med-3</em> — a model that outperforms state-of-the-art systems on the ICD-Bench evaluation suite.
+          <em>QwQ-Med-3</em>, a model that outperforms state-of-the-art systems on the ICD-Bench evaluation suite.
         </p>
         <p className="mt-3">
-          The crucial detail: the training data wasn&apos;t scraped text. It was synthesized from the graph itself —
-          paths, multi-hop questions, entailment chains. The model learned to <em>reason like a graph</em>, not just
+          The crucial detail: the training data wasn&apos;t scraped text. It was synthesized from the graph itself: paths, multi-hop questions, entailment chains. The model learned to <em>reason like a graph</em>, not just
           to retrieve passages that mention the right keywords.
         </p>
         <p className="mt-3">
@@ -182,7 +178,7 @@ export default function KnowledgeGraphArticle() {
         <p>
           When a vanilla LLM answers a medical question, it&apos;s doing high-dimensional pattern matching over the
           phrasing of its training data. When a graph-trained model answers the same question, it&apos;s effectively
-          executing a traversal it learned to imitate — and the traversal is auditable.
+          executing a traversal it learned to imitate, and the traversal is auditable.
         </p>
         <p className="mt-4">
           Consider the question: <em>&quot;A 64-year-old patient on warfarin presents with a new prescription for
@@ -198,7 +194,7 @@ export default function KnowledgeGraphArticle() {
             <span className="font-mono text-sm">warfarin → metabolizedBy → CYP2C9</span>;{" "}
             <span className="font-mono text-sm">ciprofloxacin → inhibits → CYP2C9</span>; therefore{" "}
             <span className="font-mono text-sm">ciprofloxacin → potentiates → warfarin</span>; flag bleeding risk. The
-            failure mode is silence — if a needed edge isn&apos;t in the graph, the model can say so rather than
+            failure mode is silence. if a needed edge isn&apos;t in the graph, the model can say so rather than
             confabulate.
           </li>
         </ul>
@@ -230,7 +226,7 @@ export default function KnowledgeGraphArticle() {
         <p>
           That was the moment search stopped being keyword matching and started being entity-centric. The graph powered
           structured fact retrieval, and was later extended with Knowledge Vault, neural matching, and BERT. The
-          present LLM era didn&apos;t replace that infrastructure — it was layered on top of it.
+          present LLM era didn&apos;t replace that infrastructure. it was layered on top of it.
         </p>
         <div className="flex flex-col items-center space-y-2 mt-4">
           <Image
@@ -241,7 +237,7 @@ export default function KnowledgeGraphArticle() {
             className="rounded border border-[#191919]/10 bg-white object-contain"
           />
           <p className="text-sm text-[#191919]/60">
-            A biodiversity knowledge graph — Rod Page.{" "}
+            A biodiversity knowledge graph, Rod Page.{" "}
             <a
               href="https://commons.wikimedia.org/wiki/File:Biodiversity_knowledge_graph_by_Rod_Page.png"
               target="_blank"
@@ -273,7 +269,7 @@ export default function KnowledgeGraphArticle() {
               </a>
             </strong>{" "}
             builds domain-specific KGs for finance, sports, entertainment, and weather, and uses them to power
-            automated long-form journalism — including for the Wall Street Journal.
+            automated long-form journalism, including for the Wall Street Journal.
           </li>
           <li>
             <strong>
@@ -295,7 +291,7 @@ export default function KnowledgeGraphArticle() {
                 Supermemory
               </a>
             </strong>{" "}
-            are building hybrid memory layers — graph plus vector — because pure embeddings forget the structure of
+            are building hybrid memory layers (graph plus vector) because pure embeddings forget the structure of
             what was said, and graphs alone forget the texture.
           </li>
           <li>
@@ -306,7 +302,7 @@ export default function KnowledgeGraphArticle() {
           <li>
             <strong>LinkedIn&apos;s Economic Graph.</strong> Years before LLMs, LinkedIn was modeling members,
             companies, skills, schools, and titles as a single connected graph. Today every &quot;people you may
-            know&quot;, every job match, every skill recommendation runs over that graph — not raw text.
+            know&quot;, every job match, every skill recommendation runs over that graph, not raw text.
           </li>
           <li>
             <strong>Neo4j and the graph database renaissance.</strong> Tools that were enterprise back-office
@@ -331,7 +327,7 @@ export default function KnowledgeGraphArticle() {
             is that once it exists, every model trained against it inherits that work.
           </li>
           <li>
-            <strong>Schema evolution is brutal.</strong> The world changes — new drug classes, new regulations, new
+            <strong>Schema evolution is brutal.</strong> The world changes: new drug classes, new regulations, new
             org structures. An ontology that was right two years ago can quietly become wrong, and migrating live data
             is the kind of work nobody volunteers for.
           </li>
@@ -341,8 +337,7 @@ export default function KnowledgeGraphArticle() {
             real-world graph project.
           </li>
           <li>
-            <strong>Querying isn&apos;t free.</strong> Cypher and SPARQL are powerful, but you need someone fluent in
-            them — or a layer that translates natural-language questions into traversals reliably. Both have a learning
+            <strong>Querying isn&apos;t free.</strong> Cypher and SPARQL are powerful, but you need someone fluent in them, or a layer that translates natural-language questions into traversals reliably. Both have a learning
             curve.
           </li>
         </ul>
@@ -361,13 +356,13 @@ export default function KnowledgeGraphArticle() {
         </p>
         <ul className="list-disc pl-5 space-y-2 mt-3">
           <li>
-            <strong>Knowledge graph</strong> — for verifiable facts, traversal, and constraints.
+            <strong>Knowledge graph</strong>: for verifiable facts, traversal, and constraints.
           </li>
           <li>
-            <strong>Vector store</strong> — for fuzzy semantic recall over text the graph doesn&apos;t structure.
+            <strong>Vector store</strong>: for fuzzy semantic recall over text the graph doesn&apos;t structure.
           </li>
           <li>
-            <strong>LLM</strong> — for natural-language understanding, query translation, and synthesis of the
+            <strong>LLM</strong>: for natural-language understanding, query translation, and synthesis of the
             retrieved structure into something a human can read.
           </li>
         </ul>
@@ -387,11 +382,11 @@ export default function KnowledgeGraphArticle() {
         </p>
         <p className="mt-3">
           The most likely future, to me, isn&apos;t one giant generalist. It&apos;s a network of small, sharp,
-          domain-expert models — each grounded in a high-quality knowledge graph — coordinated by a generalist that
+          domain-expert models (each grounded in a high-quality knowledge graph) coordinated by a generalist that
           knows when to defer. That feels not just possible, but inevitable.
         </p>
         <p className="mt-3 text-[#191919]/70">
-          If you&apos;re building in this space — or you think I&apos;ve got it wrong — I&apos;d love to hear it.
+          If you&apos;re building in this space, or you think I&apos;ve got it wrong, I&apos;d love to hear it.
         </p>
       </section>
     </div>

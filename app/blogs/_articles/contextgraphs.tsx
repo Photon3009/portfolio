@@ -15,7 +15,7 @@ export default function ContextGraphsArticle() {
       />
 
       <p className="text-[#191919]/70 italic">
-        a natural extension of my last post on knowledge graphs — moving from facts and entities to{" "}
+        a natural extension of my last post on knowledge graphs, moving from facts and entities to{" "}
         <span className="text-[#191919]">decisions and context</span>.
       </p>
 
@@ -36,8 +36,7 @@ export default function ContextGraphsArticle() {
           <li>a limit was overridden.</li>
         </ul>
         <p className="mt-4">
-          What they don&apos;t capture is the <em>reasoning</em> behind those outcomes — the
-          exceptions, the trade-offs, the precedent that someone leaned on at 2:47pm before signing
+          What they don&apos;t capture is the <em>reasoning</em> behind those outcomes: the exceptions, the trade-offs, the precedent that someone leaned on at 2:47pm before signing
           off. That layer rarely shows up in the system of record. It lives somewhere messier.
         </p>
       </section>
@@ -47,8 +46,7 @@ export default function ContextGraphsArticle() {
         <h2 className="text-2xl font-bold mb-3">Where the missing reasoning lives.</h2>
         <p>
           Slack threads. Email chains. Zendesk replies. Jira comments. Confluence pages. Notion
-          docs. PagerDuty timelines. Hand-written call notes. And — most often — inside someone&apos;s
-          head, retrievable only by asking nicely on a Tuesday.
+          docs. PagerDuty timelines. Hand-written call notes. And, most often, inside someone&apos;s head, retrievable only by asking nicely on a Tuesday.
         </p>
 
         <div className="mt-6 border border-[#191919]/10 rounded-lg p-6 bg-[#fafafa]">
@@ -95,8 +93,7 @@ export default function ContextGraphsArticle() {
 
         <p className="mt-6">
           That missing layer is exactly where AI breaks down. Give an LLM your CRM and it can tell
-          you what happened. Ask it <em>why</em> the discount got approved last quarter — and the
-          answer never lived in a queryable place.
+          you what happened. Ask it <em>why</em> the discount got approved last quarter, and the answer never lived in a queryable place.
         </p>
       </section>
 
@@ -119,19 +116,17 @@ export default function ContextGraphsArticle() {
         <ul className="list-disc pl-6 mt-2 space-y-1.5 text-[#191919]/80">
           <li>Acme had a competing offer from a named competitor (mentioned in three Slack threads).</li>
           <li>
-            The discount was justified because Acme committed to a public case study — referenced
-            in an email and a marketing brief, not anywhere in the CRM.
+            The discount was justified because Acme committed to a public case study, referenced in an email and a marketing brief, not anywhere in the CRM.
           </li>
           <li>VP Sales explicitly noted &quot;don&apos;t treat this as precedent&quot; in a voice memo.</li>
           <li>Two weeks later, legal flagged a similar pricing scenario as risky.</li>
         </ul>
         <p className="mt-4">
-          A context graph would carry all of that — as edges typed{" "}
+          A context graph would carry all of that, as edges typed{" "}
           <span className="font-mono text-sm bg-[#191919]/5 px-1.5 py-0.5 rounded">justifiedBy</span>,{" "}
           <span className="font-mono text-sm bg-[#191919]/5 px-1.5 py-0.5 rounded">contradictedBy</span>,{" "}
           <span className="font-mono text-sm bg-[#191919]/5 px-1.5 py-0.5 rounded">notForPrecedent</span>.
-          When the AI assistant queries &quot;is this a precedent?&quot;, it&apos;s no longer
-          guessing — it&apos;s walking edges that say <em>no, and here&apos;s why</em>.
+          When the AI assistant queries &quot;is this a precedent?&quot;, it&apos;s no longer guessing. it&apos;s walking edges that say <em>no, and here&apos;s why</em>.
         </p>
       </section>
 
@@ -139,7 +134,7 @@ export default function ContextGraphsArticle() {
       <section>
         <h2 className="text-2xl font-bold mb-3">Enter the context graph.</h2>
         <p>
-          A context graph isn&apos;t a replacement for the system of record — it&apos;s an
+          A context graph isn&apos;t a replacement for the system of record. it&apos;s an
           <span className="font-semibold"> overlay intelligence layer</span>. Think of it as a
           structured memory that sits above your existing tools and stitches together:
         </p>
@@ -155,7 +150,7 @@ export default function ContextGraphsArticle() {
             <g>
               <rect x="40" y="20" width="620" height="80" rx="10" fill="#191919" fillOpacity="0.06" stroke="#191919" strokeOpacity="0.3" strokeWidth="1.2" />
               <text x="350" y="48" fontFamily="Georgia, serif" fontSize="15" fill="#191919" textAnchor="middle" fontWeight="600">
-                context graph — the &quot;why&quot;
+                context graph: the &quot;why&quot;
               </text>
               <text x="350" y="72" fontFamily="Georgia, serif" fontSize="12" fill="#191919" fillOpacity="0.6" textAnchor="middle">
                 decision traces, exceptions, precedent, reasoning
@@ -189,7 +184,7 @@ export default function ContextGraphsArticle() {
             </g>
           </svg>
           <p className="text-xs text-[#191919]/50 mt-3 text-center italic">
-            the context graph sits <em>above</em> existing systems — it doesn&apos;t replace them
+            the context graph sits <em>above</em> existing systems. it doesn&apos;t replace them
           </p>
         </div>
       </section>
@@ -199,7 +194,7 @@ export default function ContextGraphsArticle() {
         <h2 className="text-2xl font-bold mb-3">What&apos;s actually in the graph.</h2>
         <p>
           Stripped to its essentials, a context graph models four kinds of nodes and the typed edges
-          between them. The schema is small on purpose — most of the value is in the connections,
+          between them. The schema is small on purpose. most of the value is in the connections,
           not the node types.
         </p>
         <div className="mt-5 grid sm:grid-cols-2 gap-4">
@@ -207,19 +202,19 @@ export default function ContextGraphsArticle() {
             <h3 className="font-semibold mb-2">Nodes</h3>
             <ul className="text-sm text-[#191919]/75 space-y-1.5">
               <li>
-                <span className="font-semibold">Entities</span> — accounts, deals, tickets, people,
+                <span className="font-semibold">Entities</span>: accounts, deals, tickets, people,
                 products.
               </li>
               <li>
-                <span className="font-semibold">Events</span> — approvals, edits, escalations,
+                <span className="font-semibold">Events</span>: approvals, edits, escalations,
                 outages.
               </li>
               <li>
-                <span className="font-semibold">Policies</span> — pricing rules, SLAs, compliance
+                <span className="font-semibold">Policies</span>: pricing rules, SLAs, compliance
                 gates.
               </li>
               <li>
-                <span className="font-semibold">Reasoning artifacts</span> — Slack threads, voice
+                <span className="font-semibold">Reasoning artifacts</span>: Slack threads, voice
                 memos, email chains.
               </li>
             </ul>
@@ -228,23 +223,21 @@ export default function ContextGraphsArticle() {
             <h3 className="font-semibold mb-2">Edges</h3>
             <ul className="text-sm text-[#191919]/75 space-y-1.5">
               <li>
-                <span className="font-mono text-xs">justifiedBy</span> — links an outcome to its
+                <span className="font-mono text-xs">justifiedBy</span>: links an outcome to its
                 rationale.
               </li>
               <li>
-                <span className="font-mono text-xs">contradictedBy</span> — flags conflicting
+                <span className="font-mono text-xs">contradictedBy</span>: flags conflicting
                 evidence.
               </li>
               <li>
-                <span className="font-mono text-xs">precededBy / followedBy</span> — temporal
-                ordering of events.
+                <span className="font-mono text-xs">precededBy / followedBy</span>: temporal ordering of events.
               </li>
               <li>
-                <span className="font-mono text-xs">overrides / supersededBy</span> — exception
-                tracking.
+                <span className="font-mono text-xs">overrides / supersededBy</span>: exception tracking.
               </li>
               <li>
-                <span className="font-mono text-xs">notForPrecedent</span> — explicit precedent
+                <span className="font-mono text-xs">notForPrecedent</span>: explicit precedent
                 exclusion.
               </li>
             </ul>
@@ -252,8 +245,7 @@ export default function ContextGraphsArticle() {
         </div>
         <p className="mt-5">
           The edge schema is the moat. Anyone can dump events into a database. The hard part is
-          deciding <em>what relationships matter</em> and enforcing them consistently — because the
-          quality of the graph is bounded by the precision of its edge types.
+          deciding <em>what relationships matter</em> and enforcing them consistently, because the quality of the graph is bounded by the precision of its edge types.
         </p>
       </section>
 
@@ -266,8 +258,7 @@ export default function ContextGraphsArticle() {
         <ol className="list-decimal pl-6 mt-4 space-y-3 text-[#191919]/85">
           <li>
             <span className="font-semibold">Ingest from everywhere.</span> Webhooks from Slack, the
-            CRM, Zendesk, Jira, PagerDuty, GitHub, your email server. The bias is broad and shallow —
-            capture more than you think you need, you can always prune later.
+            CRM, Zendesk, Jira, PagerDuty, GitHub, your email server. The bias is broad and shallow: capture more than you think you need, you can always prune later.
           </li>
           <li>
             <span className="font-semibold">Extract reasoning with LLMs.</span> Run incoming
@@ -276,8 +267,7 @@ export default function ContextGraphsArticle() {
           </li>
           <li>
             <span className="font-semibold">Persist as a graph, not as text.</span> Write extracted
-            triplets into a graph database (Neo4j, Memgraph, Neptune). Every edge carries provenance —
-            which message, which timestamp, which confidence score — so you can audit it later.
+            triplets into a graph database (Neo4j, Memgraph, Neptune). Every edge carries provenance (which message, which timestamp, which confidence score) so you can audit it later.
           </li>
           <li>
             <span className="font-semibold">Query with hybrid retrieval.</span> Graph traversal for
@@ -317,9 +307,8 @@ export default function ContextGraphsArticle() {
             memory across humans, agents, and time.
           </li>
           <li>
-            <span className="font-semibold">A knowledge graph.</span> KGs structure timeless facts —
-            drugs treat diseases, companies employ people. Context graphs structure
-            time-stamped reasoning — <em>why this person, this exception, this Tuesday</em>.
+            <span className="font-semibold">A knowledge graph.</span> KGs structure timeless facts: drugs treat diseases, companies employ people. Context graphs structure
+            time-stamped reasoning: <em>why this person, this exception, this Tuesday</em>.
           </li>
         </ul>
       </section>
@@ -348,7 +337,7 @@ export default function ContextGraphsArticle() {
           <div className="border border-[#191919]/10 rounded-lg p-5 bg-white">
             <h3 className="font-semibold mb-2">1. they only see current state.</h3>
             <p className="text-sm text-[#191919]/75">
-              Salesforce knows what an opportunity looks like <em>now</em> — not what it looked like
+              Salesforce knows what an opportunity looks like <em>now</em>, not what it looked like
               when the discount was approved. When a record gets edited, the justification
               evaporates. No replay. No audit. No precedent.
             </p>
@@ -388,7 +377,7 @@ export default function ContextGraphsArticle() {
           <li>
             <span className="font-semibold">Conflicting claims.</span> Slack says one thing, the CRM
             says another, and the call notes contradict both. The graph has to express disagreement
-            without collapsing it — every edge carrying provenance and confidence.
+            without collapsing it, every edge carrying provenance and confidence.
           </li>
           <li>
             <span className="font-semibold">Schema drift.</span> The org reorganizes. New deal stages
@@ -397,7 +386,7 @@ export default function ContextGraphsArticle() {
           </li>
           <li>
             <span className="font-semibold">Privacy and access control.</span> Decision context
-            often includes sensitive material — performance reviews, legal advice, board
+            often includes sensitive material: performance reviews, legal advice, board
             discussions. Edge-level permissions are non-trivial, and getting them wrong is the kind
             of bug that ends a company.
           </li>
@@ -411,7 +400,7 @@ export default function ContextGraphsArticle() {
           <li className="flex gap-3">
             <span className="text-[#191919]/40 font-mono text-sm pt-0.5 shrink-0">01</span>
             <span>
-              don&apos;t replace systems of record —{" "}
+              don&apos;t replace systems of record; {" "}
               <span className="font-semibold">sit above them.</span>
             </span>
           </li>
@@ -433,7 +422,7 @@ export default function ContextGraphsArticle() {
             <span className="text-[#191919]/40 font-mono text-sm pt-0.5 shrink-0">04</span>
             <span>
               the moat is{" "}
-              <span className="font-semibold">cross-system decision history</span> — not the LLM,
+              <span className="font-semibold">cross-system decision history</span>, not the LLM,
               not the UI.
             </span>
           </li>
@@ -448,8 +437,7 @@ export default function ContextGraphsArticle() {
           <li className="flex gap-3">
             <span className="text-[#191919]/40 font-mono text-sm pt-0.5 shrink-0">06</span>
             <span>
-              start with one decision type — pricing approvals, support escalations, hiring
-              committees — and prove value <span className="font-semibold">narrowly</span> before
+              start with one decision type (pricing approvals, support escalations, hiring committees) and prove value <span className="font-semibold">narrowly</span> before
               expanding the schema.
             </span>
           </li>
@@ -460,7 +448,7 @@ export default function ContextGraphsArticle() {
       <section className="pt-4 border-t border-[#191919]/10">
         <p className="text-[#191919]/85">
           CRMs standardized customer data. Context graphs may standardize{" "}
-          <span className="font-semibold">enterprise decision-making</span> — capturing not just
+          <span className="font-semibold">enterprise decision-making</span>, capturing not just
           the answer, but the trail of reasoning that produced it.
         </p>
         <p className="mt-4 italic text-[#191919]/70">feels early. but foundational.</p>

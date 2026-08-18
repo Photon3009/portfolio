@@ -112,27 +112,35 @@ export default function Home() {
     <main className="min-h-screen pb-56 md:pb-0 md:h-screen md:overflow-hidden bg-white text-[#191919] relative">
       {/* Bio: in flow on mobile, absolute top-left on desktop */}
       <div className="px-6 pt-10 md:px-0 md:pt-0 md:absolute md:top-12 md:left-12 max-w-2xl text-sm text-[#191919] leading-relaxed space-y-2 md:space-y-1">
-        <p>i&apos;m a software engineer who refused to stay in one lane.</p>
+        <p>i&apos;m a software engineer who refuses to stay in one lane.</p>
         <p>
-          i build products, read philosophy, contribute to open source, and write about whatever&apos;s currently living rent-free in my head — tech or not.
+          i build products, obsess over ai, contribute to open source, and write about whatever i&apos;m learning. lately, i&apos;ve been spending most of my time exploring{" "}
+          <Link
+            href="/blogs/mechanic-is-a-man"
+            className="underline hover:text-[#191919]/70 transition-colors"
+          >
+            mechanistic interpretability
+          </Link>{" "}
+          and ai alignment.
         </p>
         <p>
-          my latest obsession is{" "}
+          i&apos;m currently building{" "}
           <a
             href="https://lazysantara.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-[#191919]/70 transition-colors"
+            className="font-medium underline hover:text-[#191919]/70 transition-colors"
           >
-            lazySantara
-          </a>{" "}
-          — a platform where ai agents and humans can post any real-world task, and someone nearby just... does it. literally anything. it&apos;s weird, it&apos;s useful, and i can&apos;t stop thinking about it.
+            lazysantara
+          </a>
+          , a weird little experiment around ai agents, humans, and getting things done in the real world, along with{" "}
+          <span className="font-medium">muze</span>, a mac app that curates what you consume and resurfaces it when it matters.
         </p>
         <p>
-          i&apos;ve contributed to LFX, CCExtractor, API Dash, and a few others. won hackathons at NIT Bhopal, IIITL, MMMUT, Foss Overflow, Bank of Baroda, E-Summit and more. led GDSC and was part of the E-Cell at my campus.
+          i&apos;ve contributed to lfx, ccextractor, and api dash, won multiple hackathons, and previously led gdsc at my college.
         </p>
         <p>
-          outside of work i&apos;m usually chasing that specific feeling of understanding something deeply — a concept, a system, a person, a philosophy. still figuring most of it out.
+          outside of work, you&apos;ll usually find me reading papers, playing the guitar, writing the occasional song, or chasing the feeling of understanding something deeply.
         </p>
       </div>
 
